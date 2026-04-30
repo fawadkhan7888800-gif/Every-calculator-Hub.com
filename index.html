@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Calculators</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <h1>All Calculators</h1>
+          <p>Fast, clean, and easy calculators in one website.</p>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">Light Mode</button>
+      </header>
+
+      <nav class="tabs" aria-label="Calculator tabs">
+        <button class="tab-btn active" data-tab="basic">Basic</button>
+        <button class="tab-btn" data-tab="bmi">BMI</button>
+        <button class="tab-btn" data-tab="loan">Loan EMI</button>
+        <button class="tab-btn" data-tab="age">Age</button>
+        <button class="tab-btn" data-tab="unit">Unit</button>
+        <button class="tab-btn" data-tab="percentage">Percentage</button>
+        <button class="tab-btn" data-tab="discount">Discount</button>
+        <button class="tab-btn" data-tab="gst">GST</button>
+        <button class="tab-btn" data-tab="temperature">Temperature</button>
+        <button class="tab-btn" data-tab="sipfd">SIP/FD</button>
+        <button class="tab-btn" data-tab="currency">Currency</button>
+        <button class="tab-btn" data-tab="scientific">Scientific</button>
+        <button class="tab-btn" data-tab="history">History</button>
+      </nav>
+
+      <main>
+        <section class="panel active" id="basic">
+          <h2>Basic Calculator</h2>
+          <div class="calculator basic-grid">
+            <input id="basic-display" type="text" readonly value="0" />
+            <div id="basic-buttons" class="button-grid"></div>
+          </div>
+        </section>
+
+        <section class="panel" id="bmi">
+          <h2>BMI Calculator</h2>
+          <div class="calculator form-grid">
+            <label for="bmi-weight">Weight (kg)</label>
+            <input id="bmi-weight" type="number" min="1" step="0.1" />
+
+            <label for="bmi-height">Height (cm)</label>
+            <input id="bmi-height" type="number" min="1" step="0.1" />
+
+            <button id="bmi-calc" class="primary">Calculate BMI</button>
+            <p id="bmi-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="loan">
+          <h2>Loan EMI Calculator</h2>
+          <div class="calculator form-grid">
+            <label for="loan-principal">Loan Amount</label>
+            <input id="loan-principal" type="number" min="1" step="100" />
+
+            <label for="loan-rate">Annual Interest (%)</label>
+            <input id="loan-rate" type="number" min="0" step="0.01" />
+
+            <label for="loan-years">Years</label>
+            <input id="loan-years" type="number" min="1" step="1" />
+
+            <button id="loan-calc" class="primary">Calculate EMI</button>
+            <p id="loan-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="age">
+          <h2>Age Calculator</h2>
+          <div class="calculator form-grid">
+            <label for="dob">Date of Birth</label>
+            <input id="dob" type="date" />
+
+            <button id="age-calc" class="primary">Calculate Age</button>
+            <p id="age-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="unit">
+          <h2>Unit Converter</h2>
+          <div class="calculator form-grid">
+            <label for="unit-value">Value</label>
+            <input id="unit-value" type="number" step="any" />
+
+            <label for="unit-from">From</label>
+            <select id="unit-from">
+              <option value="km">Kilometers</option>
+              <option value="m">Meters</option>
+              <option value="mi">Miles</option>
+              <option value="ft">Feet</option>
+            </select>
+
+            <label for="unit-to">To</label>
+            <select id="unit-to">
+              <option value="km">Kilometers</option>
+              <option value="m">Meters</option>
+              <option value="mi">Miles</option>
+              <option value="ft">Feet</option>
+            </select>
+
+            <button id="unit-calc" class="primary">Convert</button>
+            <p id="unit-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="percentage">
+          <h2>Percentage Calculator</h2>
+          <div class="calculator form-grid">
+            <label for="percent-part">Part Value</label>
+            <input id="percent-part" type="number" step="any" />
+
+            <label for="percent-total">Total Value</label>
+            <input id="percent-total" type="number" step="any" />
+
+            <button id="percentage-calc" class="primary">Calculate Percentage</button>
+            <p id="percentage-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="discount">
+          <h2>Discount Calculator</h2>
+          <div class="calculator form-grid">
+            <label for="discount-original">Original Price</label>
+            <input id="discount-original" type="number" step="any" />
+
+            <label for="discount-percent">Discount (%)</label>
+            <input id="discount-percent" type="number" step="any" />
+
+            <button id="discount-calc" class="primary">Calculate Discount</button>
+            <p id="discount-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="gst">
+          <h2>GST Calculator</h2>
+          <div class="calculator form-grid">
+            <label for="gst-amount">Amount</label>
+            <input id="gst-amount" type="number" step="any" />
+
+            <label for="gst-rate">GST Rate (%)</label>
+            <input id="gst-rate" type="number" step="any" />
+
+            <button id="gst-add" class="primary">Add GST</button>
+            <button id="gst-remove">Remove GST</button>
+            <p id="gst-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="temperature">
+          <h2>Temperature Converter</h2>
+          <div class="calculator form-grid">
+            <label for="temp-value">Temperature Value</label>
+            <input id="temp-value" type="number" step="any" />
+
+            <label for="temp-from">From</label>
+            <select id="temp-from">
+              <option value="c">Celsius</option>
+              <option value="f">Fahrenheit</option>
+              <option value="k">Kelvin</option>
+            </select>
+
+            <label for="temp-to">To</label>
+            <select id="temp-to">
+              <option value="c">Celsius</option>
+              <option value="f">Fahrenheit</option>
+              <option value="k">Kelvin</option>
+            </select>
+
+            <button id="temp-calc" class="primary">Convert Temperature</button>
+            <p id="temp-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="sipfd">
+          <h2>SIP / FD Calculator</h2>
+          <div class="calculator form-grid">
+            <label for="sipfd-type">Calculator Type</label>
+            <select id="sipfd-type">
+              <option value="sip">SIP</option>
+              <option value="fd">FD</option>
+            </select>
+
+            <label for="sipfd-amount">Monthly Investment (SIP) / Principal (FD)</label>
+            <input id="sipfd-amount" type="number" step="any" />
+
+            <label for="sipfd-rate">Annual Return Rate (%)</label>
+            <input id="sipfd-rate" type="number" step="any" />
+
+            <label for="sipfd-years">Years</label>
+            <input id="sipfd-years" type="number" step="any" />
+
+            <button id="sipfd-calc" class="primary">Calculate</button>
+            <p id="sipfd-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="currency">
+          <h2>Currency Converter (Live Rates)</h2>
+          <div class="calculator form-grid">
+            <label for="currency-amount">Amount</label>
+            <input id="currency-amount" type="number" step="any" />
+
+            <label for="currency-from">From</label>
+            <select id="currency-from">
+              <option value="USD">USD</option>
+              <option value="INR">INR</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="AED">AED</option>
+              <option value="JPY">JPY</option>
+            </select>
+
+            <label for="currency-to">To</label>
+            <select id="currency-to">
+              <option value="INR">INR</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="AED">AED</option>
+              <option value="JPY">JPY</option>
+            </select>
+
+            <button id="currency-calc" class="primary">Convert Live</button>
+            <p id="currency-result" class="result"></p>
+          </div>
+        </section>
+
+        <section class="panel" id="scientific">
+          <h2>Scientific Calculator</h2>
+          <div class="calculator basic-grid">
+            <input id="sci-display" type="text" readonly value="0" />
+            <div id="sci-buttons" class="button-grid scientific-grid"></div>
+          </div>
+        </section>
+
+        <section class="panel" id="history">
+          <h2>Calculation History</h2>
+          <div class="calculator form-grid">
+            <button id="history-clear" class="danger">Clear History</button>
+            <ul id="history-list" class="history-list"></ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
